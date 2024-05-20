@@ -2,6 +2,7 @@ package com.flor.primeirotesteapicep.dto;
 
 import java.io.Serializable;
 
+import com.flor.primeirotesteapicep.enums.Regioes;
 import com.flor.primeirotesteapicep.excecoes.ExcecaoDeCepNaoEncontrado;
 import com.flor.primeirotesteapicep.model.Endereco;
 
@@ -34,19 +35,12 @@ public class EnderecoDTO implements Serializable {
         this.frete = recuperaFrete();
     }
 
-    public Double recuperaFrete(){
-        if ("SP".equals(estado) || "MG".equals(estado) || "RJ".equals(estado) || "ES".equals(estado)) {
-            return 7.85;
-        } else if ("PR".equals(estado) || "SC".equals(estado) || "RS".equals(estado)) {
-            return 17.30;
-        } else if ("MT".equals(estado) || "GO".equals(estado) || "MS".equals(estado)) {
-            return 12.50;
-        } else if ("MA".equals(estado) || "PI".equals(estado) || "CE".equals(estado) || "RN".equals(estado) || "PB".equals(estado) || "PE".equals(estado) || "AL".equals(estado) || "SE".equals(estado) || "BA".equals(estado)) {
-            return 15.98;
-        } else if ("AC".equals(estado) || "RO".equals(estado) || "AM".equals(estado) || "RR".equals(estado) || "PA".equals(estado) || "AP".equals(estado) || "TO".equals(estado)) {
-            return 20.83;
-        } else {
-            throw new ExcecaoDeCepNaoEncontrado("CEP informado não existe!!");
+    public Double recuperaFrete() {
+        for (Regioes regiao : Regioes.values()) {
+            if (regiao.name().equals(this.estado)) {
+                return regiao.getValue();
+            }
         }
+        throw new ExcecaoDeCepNaoEncontrado("CEP informado não existe!!");
     }
 }

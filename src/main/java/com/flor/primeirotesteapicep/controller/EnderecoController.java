@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flor.primeirotesteapicep.dto.EnderecoDTO;
-import com.flor.primeirotesteapicep.service.EnderecoService;
+import com.flor.primeirotesteapicep.request.Request;
+import com.flor.primeirotesteapicep.service.impl.EnderecoServiceImpl;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -26,7 +27,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class EnderecoController { 
 
     @Autowired
-    private EnderecoService service;
+    private EnderecoServiceImpl service;
 
     @PostMapping(
         consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -44,9 +45,9 @@ public class EnderecoController {
         }
     )
     public ResponseEntity<EnderecoDTO> obterCepViaBody(
-        @RequestBody @Schema(example = "{\"cep\": \"01001000\"}") Map<String, String> cep) 
+        @RequestBody @Schema(example = "{\"cep\": \"01001000\"}") Request cep) 
     {
-        EnderecoDTO dto = service.obterCep(cep.get("cep"));
+        EnderecoDTO dto = service.obterCep(cep.getCep());
         return ResponseEntity.ok().body(dto);
     }
 
