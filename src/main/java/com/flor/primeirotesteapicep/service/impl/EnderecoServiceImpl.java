@@ -6,7 +6,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.flor.primeirotesteapicep.dto.EnderecoDTO;
 import com.flor.primeirotesteapicep.excecoes.ExcecaoDeCepNaoEncontrado;
-import com.flor.primeirotesteapicep.excecoes.ExcecaoDeMalRequerimento;
 import com.flor.primeirotesteapicep.model.Endereco;
 import com.flor.primeirotesteapicep.service.EnderecoService;
 
@@ -17,11 +16,6 @@ public class EnderecoServiceImpl implements EnderecoService{
     private WebClient webClient;
 
     public EnderecoDTO obterCep(String cep){
-
-        if(!isValidCep(cep.replace("-", ""))){
-            throw new ExcecaoDeMalRequerimento("O formato do CEP informado está inválido!");
-        } 
-
         String viaCepUrl = cep + "/json"; 
         
         Endereco end = webClient.get()
@@ -33,11 +27,7 @@ public class EnderecoServiceImpl implements EnderecoService{
         if(end.getCep() == null){
             throw new ExcecaoDeCepNaoEncontrado("CEP informado não existe!!");
         }
-        EnderecoDTO endDTO = new EnderecoDTO(end);
-        return endDTO;
-    }
-    
-    private boolean isValidCep(String cep) {
-        return cep != null && cep.matches("\\d{8}");
+
+        return new EnderecoDTO(end);
     }
 }

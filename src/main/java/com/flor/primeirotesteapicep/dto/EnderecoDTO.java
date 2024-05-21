@@ -3,16 +3,10 @@ package com.flor.primeirotesteapicep.dto;
 import java.io.Serializable;
 
 import com.flor.primeirotesteapicep.enums.Estado;
-import com.flor.primeirotesteapicep.excecoes.ExcecaoDeCepNaoEncontrado;
 import com.flor.primeirotesteapicep.model.Endereco;
+import lombok.Data;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class EnderecoDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,10 +30,6 @@ public class EnderecoDTO implements Serializable {
     }
 
     public Double recuperaFrete() {
-        try {
-            return Estado.valueOf(estado).getValue();
-        } catch (IllegalArgumentException e) {
-            throw new ExcecaoDeCepNaoEncontrado("CEP informado não existe!!");
-        }
+        return Estado.valueOf(estado).getValue();
     }
 }

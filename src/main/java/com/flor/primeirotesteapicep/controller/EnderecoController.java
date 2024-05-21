@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.flor.primeirotesteapicep.dto.EnderecoDTO;
 import com.flor.primeirotesteapicep.request.Request;
-import com.flor.primeirotesteapicep.service.impl.EnderecoServiceImpl;
 import com.flor.primeirotesteapicep.swagger.SwaggerCep;
+import com.flor.primeirotesteapicep.usecases.ValidarCep;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -18,11 +18,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public class EnderecoController implements SwaggerCep{ 
 
     @Autowired
-    private EnderecoServiceImpl service;
+    private ValidarCep usecase;
 
     public ResponseEntity<EnderecoDTO> obterCepViaBody(@RequestBody @Schema(example = "{\"cep\": \"01001000\"}") Request cep) 
     {
-        EnderecoDTO dto = service.obterCep(cep.getCep());
+        EnderecoDTO dto = usecase.execute(cep.getCep());
         return ResponseEntity.ok().body(dto);
     }
 
