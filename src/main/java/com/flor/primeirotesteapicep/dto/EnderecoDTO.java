@@ -2,7 +2,7 @@ package com.flor.primeirotesteapicep.dto;
 
 import java.io.Serializable;
 
-import com.flor.primeirotesteapicep.enums.Regioes;
+import com.flor.primeirotesteapicep.enums.Estado;
 import com.flor.primeirotesteapicep.excecoes.ExcecaoDeCepNaoEncontrado;
 import com.flor.primeirotesteapicep.model.Endereco;
 
@@ -36,11 +36,10 @@ public class EnderecoDTO implements Serializable {
     }
 
     public Double recuperaFrete() {
-        for (Regioes regiao : Regioes.values()) {
-            if (regiao.name().equals(this.estado)) {
-                return regiao.getValue();
-            }
+        try {
+            return Estado.valueOf(estado).getValue();
+        } catch (IllegalArgumentException e) {
+            throw new ExcecaoDeCepNaoEncontrado("CEP informado não existe!!");
         }
-        throw new ExcecaoDeCepNaoEncontrado("CEP informado não existe!!");
     }
 }

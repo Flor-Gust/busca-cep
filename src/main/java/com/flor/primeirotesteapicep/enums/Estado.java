@@ -35,8 +35,8 @@ public enum Estado {
         this.value = value;
     }
 
-    public Regioes getValue() {
-        return value;
+    public Double getValue() {
+        return value.getValue();
     }
 
 }
