@@ -1,4 +1,4 @@
-package com.flor.primeirotesteapicep.enums;
+package com.flor.primeirotesteapicep.domains.buscacep.enums;
 
 public enum Estado {
     MG(Regioes.SUDESTE),

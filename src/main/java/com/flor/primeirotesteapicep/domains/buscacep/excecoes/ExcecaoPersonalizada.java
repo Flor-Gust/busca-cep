@@ -1,4 +1,4 @@
-package com.flor.primeirotesteapicep.excecoes;
+package com.flor.primeirotesteapicep.domains.buscacep.excecoes;
 
 import java.io.Serializable;
 import java.util.Date;

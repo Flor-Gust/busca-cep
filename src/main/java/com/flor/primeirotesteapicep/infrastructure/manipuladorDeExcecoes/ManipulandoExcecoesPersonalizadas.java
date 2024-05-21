@@ -1,4 +1,4 @@
-package com.flor.primeirotesteapicep.manipuladorDeExcecoes;
+package com.flor.primeirotesteapicep.infrastructure.manipuladorDeExcecoes;
 
 import java.util.Date;
 
@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.flor.primeirotesteapicep.excecoes.ExcecaoDeCepNaoEncontrado;
-import com.flor.primeirotesteapicep.excecoes.ExcecaoDeMalRequerimento;
-import com.flor.primeirotesteapicep.excecoes.ExcecaoPersonalizada;
+import com.flor.primeirotesteapicep.domains.buscacep.excecoes.ExcecaoDeCepNaoEncontrado;
+import com.flor.primeirotesteapicep.domains.buscacep.excecoes.ExcecaoDeMalRequerimento;
+import com.flor.primeirotesteapicep.domains.buscacep.excecoes.ExcecaoPersonalizada;
+
 
 @ControllerAdvice
 @RestController

@@ -1,4 +1,4 @@
-package com.flor.primeirotesteapicep.excecoes;
+package com.flor.primeirotesteapicep.domains.buscacep.excecoes;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

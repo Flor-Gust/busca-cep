@@ -1,16 +1,17 @@
-package com.flor.primeirotesteapicep.service.impl;
+package com.flor.primeirotesteapicep.infrastructure.adapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.flor.primeirotesteapicep.dto.EnderecoDTO;
-import com.flor.primeirotesteapicep.excecoes.ExcecaoDeCepNaoEncontrado;
-import com.flor.primeirotesteapicep.model.Endereco;
-import com.flor.primeirotesteapicep.service.EnderecoService;
+import com.flor.primeirotesteapicep.domains.buscacep.dto.EnderecoDTO;
+import com.flor.primeirotesteapicep.domains.buscacep.excecoes.ExcecaoDeCepNaoEncontrado;
+import com.flor.primeirotesteapicep.domains.buscacep.model.Endereco;
+import com.flor.primeirotesteapicep.domains.buscacep.ports.EnderecoPorts;
+
 
 @Service
-public class EnderecoServiceImpl implements EnderecoService{
+public class EnderecoAdapter implements EnderecoPorts{
 
     @Autowired
     private WebClient webClient;

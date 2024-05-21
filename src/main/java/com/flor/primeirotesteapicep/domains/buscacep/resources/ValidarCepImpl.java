@@ -1,18 +1,18 @@
-package com.flor.primeirotesteapicep.resources;
+package com.flor.primeirotesteapicep.domains.buscacep.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.flor.primeirotesteapicep.dto.EnderecoDTO;
-import com.flor.primeirotesteapicep.excecoes.ExcecaoDeMalRequerimento;
-import com.flor.primeirotesteapicep.service.EnderecoService;
-import com.flor.primeirotesteapicep.usecases.ValidarCep;
+import com.flor.primeirotesteapicep.domains.buscacep.dto.EnderecoDTO;
+import com.flor.primeirotesteapicep.domains.buscacep.excecoes.ExcecaoDeMalRequerimento;
+import com.flor.primeirotesteapicep.domains.buscacep.ports.EnderecoPorts;
+import com.flor.primeirotesteapicep.domains.buscacep.usecases.ValidarCep;
 
 @Component
 public class ValidarCepImpl implements ValidarCep{
 
     @Autowired
-    EnderecoService service;
+    EnderecoPorts service;
 
     @Override
     public EnderecoDTO execute(String cep) {

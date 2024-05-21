@@ -1,12 +1,15 @@
-package com.flor.primeirotesteapicep.dto;
+package com.flor.primeirotesteapicep.domains.buscacep.dto;
 
 import java.io.Serializable;
 
-import com.flor.primeirotesteapicep.enums.Estado;
-import com.flor.primeirotesteapicep.model.Endereco;
+import com.flor.primeirotesteapicep.domains.buscacep.enums.Estado;
+import com.flor.primeirotesteapicep.domains.buscacep.model.Endereco;
+
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class EnderecoDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;

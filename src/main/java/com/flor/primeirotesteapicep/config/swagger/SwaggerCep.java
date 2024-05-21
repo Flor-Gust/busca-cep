@@ -1,11 +1,11 @@
-package com.flor.primeirotesteapicep.swagger;
+package com.flor.primeirotesteapicep.config.swagger;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.flor.primeirotesteapicep.dto.EnderecoDTO;
-import com.flor.primeirotesteapicep.request.Request;
+import com.flor.primeirotesteapicep.domains.buscacep.dto.EnderecoDTO;
+import com.flor.primeirotesteapicep.domains.buscacep.input.Request;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -33,5 +33,5 @@ public interface SwaggerCep {
         }
     )
     ResponseEntity<EnderecoDTO> obterCepViaBody(
-        @RequestBody @Schema(example = "{\"cep\": \"01001000\"}") Request cep);
+        @RequestBody @Schema(example = "{\"cep\": \"01001-000\"}") Request cep);
 }

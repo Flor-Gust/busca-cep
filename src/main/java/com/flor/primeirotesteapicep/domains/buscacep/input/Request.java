@@ -1,9 +1,8 @@
-package com.flor.primeirotesteapicep.request;
+package com.flor.primeirotesteapicep.domains.buscacep.input;
 
 import lombok.Data;
 
 @Data
 public class Request {
-    
     private String cep;
 }
