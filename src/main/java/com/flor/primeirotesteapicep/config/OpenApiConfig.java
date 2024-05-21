@@ -14,7 +14,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI(){
         return new OpenAPI()
             .info(new Info()
-                .title("API para buscar CEP e calcular frete com java 17 e Spring Boot 3.2.3.")
+                .title("API para buscar CEP e calcular frete com java 17 e Spring Boot 3.2.5.")
                 .version("v1")
                 .description("Basta informar um CEP com ou sem hífen que a API informará os dados do endereço mais o frete.")
                 .termsOfService("www.linkedin.com/in/luan-flor-2287b2262")
