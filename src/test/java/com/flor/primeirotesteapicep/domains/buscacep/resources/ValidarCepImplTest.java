@@ -11,6 +11,7 @@ import com.flor.primeirotesteapicep.domains.buscacep.dto.EnderecoDTO;
 import com.flor.primeirotesteapicep.domains.buscacep.excecoes.ExcecaoDeCepNaoEncontrado;
 import com.flor.primeirotesteapicep.domains.buscacep.excecoes.ExcecaoDeMalRequerimento;
 import com.flor.primeirotesteapicep.domains.buscacep.ports.EnderecoPorts;
+import com.flor.primeirotesteapicep.domains.buscacep.usecases.ValidarCepImpl;
 
 class ValidarCepImplTest {
 
@@ -23,7 +24,7 @@ class ValidarCepImplTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         validarCep = new ValidarCepImpl();
-        validarCep.service = enderecoPorts;
+        validarCep.setService(enderecoPorts);
     }
 
     @Test

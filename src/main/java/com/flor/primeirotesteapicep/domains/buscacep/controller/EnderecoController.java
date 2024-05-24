@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.flor.primeirotesteapicep.config.swagger.SwaggerCep;
 import com.flor.primeirotesteapicep.domains.buscacep.dto.EnderecoDTO;
 import com.flor.primeirotesteapicep.domains.buscacep.input.Request;
-import com.flor.primeirotesteapicep.domains.buscacep.usecases.ValidarCep;
+import com.flor.primeirotesteapicep.domains.buscacep.resources.ValidarCep;
 
 @RestController
 @RequestMapping("/v1/consulta-endereco")
